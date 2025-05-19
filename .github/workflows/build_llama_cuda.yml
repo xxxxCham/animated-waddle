@@ -25,10 +25,10 @@ jobs:
 
       - name: Build llama_cpp wheel with CUDA
         run: |
-          pip wheel . --config-settings=cmake.define.GGML_CUDA=on --no-build-isolation -w dist/
+          "pip wheel . --config-settings=cmake.define.GGML_CUDA=on --no-build-isolation -w dist/"
 
-      - name: Upload wheel artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: llama-cpp-wheel
-          path: dist/*.whl
+    - name: Upload wheel artifact
+  uses: actions/upload-artifact@v3.1.0
+  with:
+    name: llama-cpp-wheel
+    path: dist/*.whl
